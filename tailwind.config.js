@@ -9,6 +9,10 @@ export default {
 			colors: {
 				'midnight-900': '#121063', // ← use your desired hex code here
 			},
+			animation: {
+        'pulse-slow': 'pulse 8s infinite',
+        'pulse-slower': 'pulse 12s infinite',
+      },
 		},
 	},
 	plugins: [],

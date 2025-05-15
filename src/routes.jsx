@@ -4,7 +4,7 @@ import App from "./App";
 import Home from "./pages/Home/Home";
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Features from './pages/Features/Features';
+import Features from './pages/Features/Features'; 
 import Toolkits from './pages/ToolKits/Toolkits';
 import Screeners from './pages/Screeners/Screeners';
 import Backtesters from './pages/Backtesters/Backtesters';
