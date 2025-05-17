@@ -14,7 +14,7 @@ const Screener = () => {
             Screeners
           </p>
 
-          {/* Heading */}
+          {/* Heading: Two proper lines */}
           <h1
             style={{
               fontFamily: "Inter",
@@ -28,8 +28,7 @@ const Screener = () => {
             <div>Discover Smarter</div>
             <div
               style={{
-                background:
-                  "linear-gradient(98.15deg, #2DB2FF 17.31%, #0594BB 145.03%)",
+                background: "linear-gradient(98.15deg, #2DB2FF 17.31%, #0594BB 145.03%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 mixBlendMode: "hard-light",
@@ -64,7 +63,7 @@ const Screener = () => {
           <img
             src={womanImg}
             alt="Woman with laptop"
-            className="w-[700px] h-auto object-contain"  // increased size from 650px to 700px width
+            className="w-[650px] h-auto object-contain" // Matching SmarterTools image sizing
           />
         </div>
       </div>
@@ -73,4 +72,3 @@ const Screener = () => {
 };
 
 export default Screener;
-
