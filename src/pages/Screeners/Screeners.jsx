@@ -4,7 +4,6 @@ import FindWinning from './FindWinning'
 import MultiTime from './MultiTime'
 import Quickly from './Quickly'
 import FuelTradingPotential from '../ToolKits/FuelTradingPotential'
-import Fuel from '../ToolKits/Fuel'
 
 const Screeners = () => {
   return (
@@ -14,7 +13,7 @@ const Screeners = () => {
      <MultiTime/>
      <Quickly/>
      <FuelTradingPotential/>
-     <Fuel/>
+     
     </div>
   )
 }
