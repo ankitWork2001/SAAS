@@ -9,7 +9,7 @@ import Fuel from './Fuel';
 const Toolkits = () => {
   return (
     <div>
-      <h2>Toolkits</h2>
+      
       <SmarterTools />
       <ReadTheMarket/>
       <AdvanceTechnical/>

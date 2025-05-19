@@ -17,6 +17,19 @@ import PersonalInfo from './pages/PersonalInfo/PersonalInfo';
 import PrivacyForm from './pages/PrivacyPolicy/PrivacyForm';
 import Support from './pages/Support/Support';
 import AITest from "./pages/AITest/AITest";
+import About from "./components/About";
+import AboutHero from './components/About/AboutHero';
+import Market from './components/About/Market';
+import Trading from './components/About/Trading';
+import Lux from './components/About/Lux';
+import Plans from './components/Pricing/Plans';
+import Safe from './components/Pricing/Safe';
+import Question from './components/Pricing/Question';
+import Pricing1 from './components/Pricing/Pricing1';
+
+
+
+
 
 
 export const router = createBrowserRouter([
@@ -57,6 +70,48 @@ export const router = createBrowserRouter([
                {
                     path: "pricing",
                     element: <Pricing />,
+                    children: [
+                         {
+      index: true,
+      element: <Pricing1 /> // default child
+    },
+    {
+      path: "plans",
+      element: <Plans /> // default child
+    },
+    {
+      path: "safe",
+      element: <Safe />
+    },
+    {
+      path: "question",
+      element: <Question />
+    }
+  ]
+
+               },
+               {
+                    path: "about",
+                    element: <About />,
+                    children: [
+    {
+      index: true,
+      element: <AboutHero />, // default child
+    },
+    {
+      path: "market",
+      element: <Market />,
+    },
+    {
+      path: "trading",
+      element: <Trading />,
+    },
+    {
+      path: "lux",
+      element: <Lux />,
+    },
+  ],
+
                },
                {
                     path: "ai-test",
