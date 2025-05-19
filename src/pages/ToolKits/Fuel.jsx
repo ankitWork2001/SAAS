@@ -22,68 +22,6 @@ const Fuel = () => {
           <ArrowRight size={18} /> Get 30 Days risk free
         </button>
       </div>
-
-      {/* Footer Section (No background image here) */}
-      <div className="pt-16 pb-10 px-4 md:px-16 border-t border-gray-700 grid grid-cols-2 md:grid-cols-5 gap-8 text-sm text-gray-300">
-        {/* Product */}
-        <div>
-          <h4 className="text-white font-semibold mb-3">product</h4>
-          <ul className="space-y-2">
-            <li>Pricing</li>
-            <li>Library</li>
-            <li>Features</li>
-            <li>Toolkits</li>
-            <li>Screeners</li>
-            <li>AI Backtesting</li>
-          </ul>
-        </div>
-
-        {/* Resources */}
-        <div>
-          <h4 className="text-white font-semibold mb-3">Resources</h4>
-          <ul className="space-y-2">
-            <li>Docs</li>
-            <li>Blog</li>
-            <li>About</li>
-            <li>Community</li>
-            <li>Affiliates</li>
-            <li>Brand</li>
-          </ul>
-        </div>
-
-        {/* Company */}
-        <div>
-          <h4 className="text-white font-semibold mb-3">Company</h4>
-          <ul className="space-y-2">
-            <li>Terms of Service</li>
-            <li>Disclaimer</li>
-            <li>Privacy policy</li>
-            <li>Cookies</li>
-          </ul>
-        </div>
-
-        {/* My Account */}
-        <div>
-          <h4 className="text-white font-semibold mb-3">My Account</h4>
-          <ul className="space-y-2">
-            <li>Account Settings</li>
-            <li>Support</li>
-          </ul>
-        </div>
-
-        {/* Logo and Social Icons */}
-        <div className="col-span-2 md:col-span-1 flex flex-col items-center justify-center gap-3">
-          <div className="text-white text-xl font-bold flex items-center gap-2">
-            <img src="/logo.svg" alt="Logo" className="h-6" />
-            TradeSpark
-          </div>
-          <div className="flex gap-5 mt-4">
-            <img src="/yt.svg" alt="YouTube" className="h-5 cursor-pointer" />
-            <img src="/x.svg" alt="X" className="h-5 cursor-pointer" />
-            <img src="/discord.svg" alt="Discord" className="h-5 cursor-pointer" />
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
