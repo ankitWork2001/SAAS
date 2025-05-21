@@ -7,7 +7,7 @@ import FuelTradingPotential from '../ToolKits/FuelTradingPotential'
 
 const Screeners = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
      <Screener/>
      <FindWinning/>
      <MultiTime/>
