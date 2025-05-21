@@ -8,14 +8,13 @@ import Fuel from './Fuel';
 
 const Toolkits = () => {
   return (
-    <div>
-      
+    <div style={{ overflow: 'hidden' }}>
       <SmarterTools />
-      <ReadTheMarket/>
-      <AdvanceTechnical/>
-      <PredictCard/>
-      <FuelTradingPotential/>
-      <Fuel/>
+      <ReadTheMarket />
+      <AdvanceTechnical />
+      <PredictCard />
+      <FuelTradingPotential />
+      <Fuel />
     </div>
   );
 };
