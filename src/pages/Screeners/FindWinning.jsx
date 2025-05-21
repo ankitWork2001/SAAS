@@ -1,5 +1,5 @@
 import React from "react";
-import chartImage from "../../assets/chart.png"; // replace with actual image path
+import chartImage from "../../assets/chart.png";
 
 const colors = [
   "rgba(255, 80, 80, 0.7)",   // red
@@ -22,16 +22,16 @@ const orbitKeyframes = `
 
 const FindWinning = () => {
   return (
-    <div className="relative w-full py-20 bg-[#010B24] overflow-hidden flex justify-center items-center">
+    <div className="relative w-full py-16 md:py-20 bg-[#010B24] overflow-hidden flex justify-center items-center px-4 sm:px-6">
       {/* Orbit animation keyframes */}
       <style>{orbitKeyframes}</style>
 
-      {/* Content container */}
-      <div className="relative z-10 w-full max-w-[1240px] bg-[#0B1227] rounded-[20px] shadow-[0px_0px_60px_0px_rgba(0,0,0,0.35)] flex flex-col md:flex-row items-center justify-between px-10 py-16 gap-10 overflow-hidden">
+      {/* Content Container */}
+      <div className="relative z-10 w-full max-w-[1240px] bg-[#0B1227] rounded-[20px] shadow-[0px_0px_60px_0px_rgba(0,0,0,0.35)] flex flex-col md:flex-row items-center justify-between px-6 sm:px-8 md:px-10 py-10 md:py-16 gap-10 overflow-hidden">
         
-        {/* Orbiting colorful glowing orbs behind entire container */}
+        {/* Orbiting Orbs */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none -z-10">
-          {rotations.map((initialRotation, idx) => (
+          {rotations.map((deg, idx) => (
             <div
               key={idx}
               style={{
@@ -46,7 +46,7 @@ const FindWinning = () => {
                 marginTop: "-100px",
                 marginLeft: "-175px",
                 transformOrigin: "50% 50%",
-                transform: `rotate(${initialRotation}deg) translateX(400px) rotate(-${initialRotation}deg)`,
+                transform: `rotate(${deg}deg) translateX(400px) rotate(-${deg}deg)`,
                 animation: "orbit 12s linear infinite",
                 animationDelay: `${idx * 4}s`,
                 opacity: 0.6,
@@ -56,16 +56,16 @@ const FindWinning = () => {
           ))}
         </div>
 
-        {/* Left Gradient Box Content */}
-        <div className="flex-1 rounded-xl p-6 sm:p-10 bg-gradient-to-br from-[#7b1fa2] via-[#512da8] to-[#0B1437] text-white shadow-lg">
+        {/* Text Content */}
+        <div className="flex-1 rounded-xl p-4 sm:p-6 md:p-10 bg-gradient-to-br from-[#7b1fa2] via-[#512da8] to-[#0B1437] text-white shadow-lg w-full">
           <p className="text-sm text-gray-300 mb-2">
             Toolkit <span className="text-[#8de1ff]">Screening</span>
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold leading-snug mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-snug mb-4">
             Find <span className="text-[#8de1ff]">Winning</span><br />
             Setups <span className="text-[#8de1ff]">Faster</span>
           </h2>
-          <p className="text-[#D3DCE6] text-base md:text-lg mb-6">
+          <p className="text-[#D3DCE6] text-base sm:text-lg mb-6">
             Forget the endless search. Instantly scan charts for top trade opportunities using smart filters,
             indicators, and pattern recognition. Whether you're into stocks, crypto, or forex—TradeSpark helps
             you spot high-potential trades in seconds.
@@ -75,12 +75,12 @@ const FindWinning = () => {
           </button>
         </div>
 
-        {/* Right image */}
-        <div className="flex-1">
+        {/* Chart Image */}
+        <div className="flex-1 w-full flex justify-center items-center">
           <img
             src={chartImage}
             alt="Chart"
-            className="rounded-[20px] w-full h-auto object-contain shadow-lg"
+            className="rounded-[20px] w-full max-w-[500px] h-auto object-contain shadow-lg"
           />
         </div>
       </div>
