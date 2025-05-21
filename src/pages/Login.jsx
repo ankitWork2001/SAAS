@@ -12,12 +12,12 @@ const Login = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setBgIndex((prev) => (prev + 1) % bgImages.length);
-    }, 8000); // Delay between swaps
+    }, 8000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="relative h-screen w-full overflow-hidden flex items-center justify-center font-sans">
+    <div className="relative h-screen w-full overflow-hidden flex items-center justify-center font-sans px-4">
       {/* Animated Backgrounds */}
       {bgImages.map((img, index) => (
         <div
@@ -33,9 +33,11 @@ const Login = () => {
       <div className="absolute inset-0 bg-black/60 z-10" />
 
       {/* Login Box */}
-      <div className="relative z-20 max-w-md w-full bg-white/10 backdrop-blur-md text-white rounded-xl p-8 shadow-2xl">
-        <h1 className="text-4xl font-bold mb-2">Login</h1>
-        <p className="text-slate-200 mb-6">Welcome back! Please login to your account.</p>
+      <div className="relative z-20 w-full max-w-sm sm:max-w-md bg-white/10 backdrop-blur-md text-white rounded-xl p-6 sm:p-8 shadow-2xl">
+        <h1 className="text-3xl sm:text-4xl font-bold mb-2">Login</h1>
+        <p className="text-slate-200 mb-6 text-sm sm:text-base">
+          Welcome back! Please login to your account.
+        </p>
 
         <form className="space-y-4">
           <div>
@@ -46,7 +48,7 @@ const Login = () => {
               id="email"
               type="email"
               placeholder="you@example.com"
-              className="w-full px-4 py-2 bg-slate-800 text-white rounded-md border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 bg-slate-800 text-white rounded-md border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
               required
             />
           </div>
@@ -59,12 +61,12 @@ const Login = () => {
               id="password"
               type="password"
               placeholder="••••••••"
-              className="w-full px-4 py-2 bg-slate-800 text-white rounded-md border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 bg-slate-800 text-white rounded-md border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
               required
             />
           </div>
 
-          <div className="flex items-center justify-between text-sm text-slate-300">
+          <div className="flex items-center justify-between text-xs sm:text-sm text-slate-300">
             <label className="flex items-center gap-2">
               <input type="checkbox" className="accent-blue-500" />
               Remember Me
@@ -76,13 +78,13 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 transition duration-300 text-white font-semibold py-2 rounded-md"
+            className="w-full bg-blue-600 hover:bg-blue-700 transition duration-300 text-white font-semibold py-2 rounded-md text-sm sm:text-base"
           >
             Login
           </button>
         </form>
 
-        <p className="text-sm text-slate-300 mt-4 text-center">
+        <p className="text-xs sm:text-sm text-slate-300 mt-4 text-center">
           Don’t have an account?{" "}
           <Link to="/signup" className="text-blue-400 hover:underline">
             Sign up

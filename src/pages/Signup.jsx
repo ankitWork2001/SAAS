@@ -17,7 +17,7 @@ const Signup = () => {
   }, []);
 
   return (
-    <div className="relative h-screen w-full overflow-hidden flex items-center justify-center font-sans">
+    <div className="relative min-h-screen w-full overflow-hidden flex items-center justify-center font-sans px-4 sm:px-6 md:px-10">
       {/* Animated Backgrounds */}
       {bgImages.map((img, index) => (
         <div
@@ -33,13 +33,13 @@ const Signup = () => {
       <div className="absolute inset-0 bg-black/60 z-10" />
 
       {/* Signup Box */}
-      <div className="relative z-20 max-w-md w-full bg-white/10 backdrop-blur-md text-white rounded-xl p-8 shadow-2xl">
-        <h1 className="text-4xl font-bold mb-2">Sign Up</h1>
-        <p className="text-slate-200 mb-6">Create your account</p>
+      <div className="relative z-20 w-full max-w-md bg-white/10 backdrop-blur-md text-white rounded-xl p-6 sm:p-8 shadow-2xl">
+        <h1 className="text-3xl sm:text-4xl font-bold mb-2">Sign Up</h1>
+        <p className="text-sm sm:text-base text-slate-200 mb-6">Create your account</p>
 
-        <form className="space-y-4">
+        <form className="space-y-4 text-sm sm:text-base">
           <div>
-            <label htmlFor="name" className="block text-sm font-semibold mb-1">
+            <label htmlFor="name" className="block font-semibold mb-1">
               Full Name
             </label>
             <input
@@ -52,7 +52,7 @@ const Signup = () => {
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-semibold mb-1">
+            <label htmlFor="email" className="block font-semibold mb-1">
               Email
             </label>
             <input
@@ -65,7 +65,7 @@ const Signup = () => {
           </div>
 
           <div>
-            <label htmlFor="phone" className="block text-sm font-semibold mb-1">
+            <label htmlFor="phone" className="block font-semibold mb-1">
               Phone Number
             </label>
             <input
@@ -78,7 +78,7 @@ const Signup = () => {
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-semibold mb-1">
+            <label htmlFor="password" className="block font-semibold mb-1">
               Password
             </label>
             <input
@@ -91,7 +91,7 @@ const Signup = () => {
           </div>
 
           <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-semibold mb-1">
+            <label htmlFor="confirmPassword" className="block font-semibold mb-1">
               Confirm Password
             </label>
             <input
