@@ -6,16 +6,17 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        'midnight-900': '#121063', // your color
-      },
       animation: {
-        orbit: 'orbit 20s linear infinite',
+        orbit: 'orbit 30s linear infinite',
       },
       keyframes: {
         orbit: {
-          '0%': { transform: 'rotate(0deg) translateX(300px) rotate(0deg)' },
-          '100%': { transform: 'rotate(360deg) translateX(300px) rotate(-360deg)' },
+          '0%': {
+            transform: 'rotate(0deg) translateX(400px) rotate(0deg)',
+          },
+          '100%': {
+            transform: 'rotate(360deg) translateX(400px) rotate(-360deg)',
+          },
         },
       },
     },
