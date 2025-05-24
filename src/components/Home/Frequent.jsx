@@ -25,17 +25,17 @@ const Frequent = () => {
         Frequent <span className="text-cyan-400">questions</span>
       </h2>
 
-      <div className="w-full max-w-3xl space-y-4">
+      <div className="w-full max-w-[1013px] flex flex-col items-center space-y-4">
         {faqs.map((question, index) => (
           <div
             key={index}
-            className="bg-gradient-to-r from-[#1A1E61] to-[#0639A7] rounded-xl overflow-hidden"
+            className="w-full rounded-xl overflow-hidden bg-gradient-to-r from-[#1A1E61] to-[#0639A7] shadow-[0px_10px_20px_0px_#00000040]"
           >
             <button
               onClick={() => toggleFAQ(index)}
-              className="w-full px-6 py-4 flex justify-between items-center font-semibold text-left text-white focus:outline-none"
+              className="w-full px-4 sm:px-6 py-4 flex justify-between items-center font-semibold text-left text-white focus:outline-none"
             >
-              {question}
+              <span className="text-sm sm:text-base">{question}</span>
               <ChevronDown
                 className={`h-5 w-5 transform transition-transform duration-300 ${
                   openIndex === index ? 'rotate-180' : ''
@@ -44,7 +44,7 @@ const Frequent = () => {
             </button>
 
             {openIndex === index && (
-              <div className="px-6 pb-4 text-sm text-white opacity-80">
+              <div className="px-4 sm:px-6 pb-4 text-sm text-white opacity-80 bg-[#0d172b]">
                 This is a placeholder answer for: <strong>{question}</strong>. Replace with actual content.
               </div>
             )}

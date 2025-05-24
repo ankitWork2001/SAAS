@@ -2,45 +2,69 @@ import React from "react";
 import screenerChart from "../../assets/graph12.png";
 
 const colors = [
-  "rgba(250, 115, 172, 0.7)", // pink
-  "rgba(255, 160, 60, 0.7)",  // orange
-  "rgba(85, 180, 255, 0.7)",  // blue
+  "rgba(250, 115, 172, 0.4)", // pink
+  "rgba(255, 160, 60, 0.4)",  // orange
+  "rgba(85, 180, 255, 0.4)",  // blue
+  "rgba(107, 255, 149, 0.4)", // green
+  "rgba(214, 123, 255, 0.4)", // violet
+  "rgba(249, 255, 142, 0.4)", // yellow
 ];
 
-const rotations = [0, 60, 120]; // Three rotations for three circles
+const orbs = [
+  { size: 150, orbitRadius: 80, speed: 6, top: "20%", left: "30%" },
+  { size: 130, orbitRadius: 70, speed: 7, top: "60%", left: "20%" },
+  { size: 170, orbitRadius: 90, speed: 5, top: "40%", left: "70%" },
+  { size: 140, orbitRadius: 75, speed: 6.5, top: "75%", left: "60%" },
+  { size: 120, orbitRadius: 65, speed: 8, top: "25%", left: "80%" },
+  { size: 160, orbitRadius: 85, speed: 5.5, top: "55%", left: "50%" },
+];
 
 const Screener = () => {
+  // Generate keyframes string dynamically for each orb speed
+  const generateOrbitKeyframes = (orbitRadius) => `
+    @keyframes orbit-${orbitRadius} {
+      0% {
+        transform: rotate(0deg) translateX(${orbitRadius}px) rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg) translateX(${orbitRadius}px) rotate(-360deg);
+      }
+    }
+  `;
+
   return (
     <div className="relative w-full py-20 bg-[#010B24] flex justify-center items-center overflow-hidden">
-      {/* Disco Light Blobs */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none -z-10">
-        {rotations.map((angle, index) => (
-          <div
-            key={index}
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              width: "300px",
-              height: "300px",
-              background: colors[index % colors.length],
-              filter: "blur(80px)", // Soften the light for a shady effect
-              borderRadius: "50%",
-              marginTop: "-150px",
-              marginLeft: "-150px",
-              transformOrigin: "50% 50%",
-              opacity: 0.6,
-              mixBlendMode: "screen", // Makes the lights blend like disco lights
-            }}
-            className="animate-orbit" // Apply the custom orbit animation
-          />
-        ))}
-      </div>
+      <style>
+        {orbs.map(({ orbitRadius }) => generateOrbitKeyframes(orbitRadius)).join("\n")}
+      </style>
 
       {/* Main Card */}
       <div className="relative z-10 w-[92%] max-w-[1240px] rounded-[20px] flex flex-col md:flex-row items-center justify-between px-8 py-16 bg-gradient-to-br from-[#0B1227] via-[#1c1d2e] to-[#391F63] overflow-hidden shadow-xl">
+
+        {/* Orbiting Shadowy Glowing Circles filling inner div */}
+        {orbs.map(({ size, orbitRadius, speed, top, left }, i) => (
+          <div
+            key={i}
+            style={{
+              position: "absolute",
+              top,
+              left,
+              width: `${size}px`,
+              height: `${size}px`,
+              background: colors[i % colors.length],
+              borderRadius: "50%",
+              filter: "blur(30px)",
+              opacity: 0.35,
+              mixBlendMode: "screen",
+              transformOrigin: `-${orbitRadius}px center`,
+              animation: `orbit-${orbitRadius} ${speed}s linear infinite`,
+              zIndex: 1,
+            }}
+          />
+        ))}
+
         {/* Text Section */}
-        <div className="flex-1 w-full md:w-1/2 text-white z-10">
+        <div className="flex-1 w-full md:w-1/2 text-white z-20 relative">
           <p className="text-sm sm:text-base font-medium text-[#CBD5E1] mb-2">
             <span className="text-[#c4c8f7]">Screeners</span> &{" "}
             <span className="text-[#a98ff8]">Alerts</span>
@@ -48,7 +72,7 @@ const Screener = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-snug text-white mb-4">
             Discover <span className="text-[#7de2ff]">Winning</span>
             <br />
-            Trade <span className="text-[#7de2ff]">Opportunities</span>
+            Trade <span className="text-[#7deff]">Opportunities</span>
             <br />
             Instantly
           </h2>
@@ -63,7 +87,7 @@ const Screener = () => {
         </div>
 
         {/* Image Section */}
-        <div className="flex-1 w-full md:w-1/2 mt-10 md:mt-0 z-10">
+        <div className="flex-1 w-full md:w-1/2 mt-10 md:mt-0 z-20 relative">
           <img
             src={screenerChart}
             alt="Screener Chart"
