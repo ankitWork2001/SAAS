@@ -1,27 +1,22 @@
-// src/components/AboutHero/AboutHero.jsx
-
 import React from 'react';
 import starsBg from '../../assets/stars.jpg';
 
 const AboutHero = () => {
-  console.log('starsBg URL:', starsBg);
-
   return (
     <section
-      className="w-full min-h-screen flex flex-col items-center justify-center bg-cover bg-no-repeat bg-center text-white px-4 text-center"
+      className="w-full min-h-screen flex items-center justify-center bg-cover bg-no-repeat bg-center text-white px-4 sm:px-6 md:px-10 text-center"
       style={{
         backgroundImage: [
-          // semi-transparent gradient
           'linear-gradient(180deg, rgba(2,0,20,0.7) 0%, rgba(12,8,36,0.7) 100%)',
-          // your stars image
           `url(${starsBg})`
         ].join(', '),
-        backgroundBlendMode: 'overlay'
+        backgroundBlendMode: 'overlay',
       }}
     >
-      <div className="max-w-5xl mx-auto space-y-8 py-12">
+      <div className="max-w-5xl mx-auto space-y-6 py-12 md:py-20">
+        {/* Title */}
         <h2
-          className="text-[35px] font-medium tracking-[-0.055em]"
+          className="text-3xl md:text-4xl font-medium tracking-tight"
           style={{
             background: 'linear-gradient(270deg, #3B3B3B 0%, #E3E3E3 100%)',
             WebkitBackgroundClip: 'text',
@@ -31,8 +26,10 @@ const AboutHero = () => {
         >
           About
         </h2>
+
+        {/* Main Heading */}
         <h1
-          className="text-[40px] font-bold tracking-[0.01em] mx-auto max-w-[864px] leading-snug"
+          className="text-[28px] sm:text-[32px] md:text-[40px] font-bold tracking-tight leading-snug mx-auto max-w-3xl"
           style={{
             background:
               'linear-gradient(98.15deg, #FFFFFF 17.31%, #0594BB 145.03%)',
@@ -44,8 +41,10 @@ const AboutHero = () => {
         >
           Empowering Traders with Smarter Insights
         </h1>
+
+        {/* Subheading */}
         <p
-          className="text-[20px] font-semibold tracking-[0.01em] text-center leading-relaxed"
+          className="text-base sm:text-lg md:text-xl font-semibold leading-relaxed tracking-tight mx-auto max-w-2xl"
           style={{
             color: '#FFFFFF',
             fontFamily: 'Inter',
