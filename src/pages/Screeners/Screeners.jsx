@@ -1,5 +1,5 @@
 import React from 'react'
-import Screener from './screener'
+import Screener from './Screener'
 import FindWinning from './FindWinning'
 import MultiTime from './MultiTime'
 import Quickly from './Quickly'
