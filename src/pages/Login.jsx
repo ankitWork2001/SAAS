@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const bgImages = [
   "https://img.freepik.com/free-photo/beautiful-sea-side-landscape_23-2150724997.jpg",
@@ -8,6 +9,8 @@ const bgImages = [
 
 const Login = () => {
   const [bgIndex, setBgIndex] = useState(0);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -15,6 +18,27 @@ const Login = () => {
     }, 8000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("http://localhost:5000/api/auth/login", {
+        email,
+        password,
+      });
+
+      alert("Login Successful!");
+      console.log(response.data);
+
+      // Save token or user data if needed
+      // localStorage.setItem("token", response.data.token);
+
+    } catch (err) {
+      console.error("Login error:", err.response?.data || err.message);
+      alert("Login failed. Please check your credentials.");
+    }
+  };
 
   return (
     <div className="relative h-screen w-full overflow-hidden flex items-center justify-center font-sans px-4">
@@ -39,7 +63,7 @@ const Login = () => {
           Welcome back! Please login to your account.
         </p>
 
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleLogin}>
           <div>
             <label htmlFor="email" className="block text-sm font-semibold mb-1">
               Email
@@ -47,6 +71,8 @@ const Login = () => {
             <input
               id="email"
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
               className="w-full px-4 py-2 bg-slate-800 text-white rounded-md border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
               required
@@ -60,6 +86,8 @@ const Login = () => {
             <input
               id="password"
               type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
               className="w-full px-4 py-2 bg-slate-800 text-white rounded-md border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
               required
