@@ -6,7 +6,7 @@ import Lux from './About/Lux'
 
 const About = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
       <AboutHero/>
       <Market/>
       <Trading/>

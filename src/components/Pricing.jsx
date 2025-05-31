@@ -7,7 +7,7 @@ import FaqSection from './Pricing/Question'
 
 const Pricing = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
       <Pricing1/>
       <Plans/>
       <Safe/>

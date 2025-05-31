@@ -1,5 +1,3 @@
-// src/components/Trading/Trading.jsx
-
 import React, { useState } from 'react';
 import bgTrust from '../../assets/Rectangle 60.png';
 import bgToolsTeam from '../../assets/Rectangle 61.png';
@@ -33,38 +31,26 @@ const Trading = () => {
   const [hoveredId, setHoveredId] = useState(null);
 
   return (
-    <div className="w-full bg-[#020014] text-white px-4 py-20 flex flex-col items-center">
+    <div className="w-full bg-[#020014] text-white px-4 sm:px-6 md:px-10 py-20 flex flex-col items-center">
       {/* Heading */}
       <h2
-        className="font-bold mb-4 text-center"
+        className="text-3xl md:text-4xl font-bold mb-4 text-center"
         style={{
           fontFamily: 'Inter',
-          fontWeight: 700,
-          fontSize: '40px',
-          lineHeight: '100%',
-          letterSpacing: '1%',
-          mixBlendMode: 'hard-light',
           background: 'linear-gradient(98.15deg, #FFFFFF 17.31%, #0594BB 145.03%)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
+          mixBlendMode: 'hard-light',
         }}
       >
         Trading’s biggest anomaly
       </h2>
-      <p
-        className="mb-12 text-center max-w-2xl"
-        style={{
-          fontFamily: 'Inter',
-          fontWeight: 500,
-          fontSize: '18px',
-          lineHeight: '150%',
-        }}
-      >
+      <p className="text-center max-w-2xl text-base sm:text-lg font-medium mb-12 leading-relaxed" style={{ fontFamily: 'Inter' }}>
         Our contributive approach is how we became the largest brand for trading software plug‑ins & scripts.
       </p>
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-7xl">
         {options.map(({ id, text, bg }) => {
           const isHover = hoveredId === id;
 
@@ -73,33 +59,21 @@ const Trading = () => {
               key={id}
               onMouseEnter={() => setHoveredId(id)}
               onMouseLeave={() => setHoveredId(null)}
-              className="transition-all duration-300 ease-in-out"
+              className="w-full min-h-[378px] rounded-[20px] transition-all duration-300 ease-in-out px-4 py-6 flex items-center justify-center text-center"
               style={{
-                width: 274,
-                height: 378,
-                opacity: 0.6,
-                borderRadius: 20,
                 backgroundImage: isHover
                   ? `url(${bg})`
                   : 'linear-gradient(180deg, #010B24 0%, #340086 100%)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '20px',
+                opacity: 0.9,
               }}
             >
               <p
-                className="text-center"
+                className="text-base sm:text-lg font-semibold leading-snug z-10"
                 style={{
                   fontFamily: 'Inter',
-                  fontWeight: 600,
-                  fontSize: '20px',
-                  lineHeight: '100%',
-                  letterSpacing: '1%',
                   color: '#FFFFFF',
-                  zIndex: 1,
                 }}
               >
                 {text}
