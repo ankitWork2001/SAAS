@@ -1,13 +1,14 @@
 import React from "react";
 import tradingTools from "../../assets/graph12.png";
 
-import orb1 from "../../assets/orb1.png";
-import orb2 from "../../assets/orb2.png";
-import orb3 from "../../assets/orb3.png";
-import orb4 from "../../assets/orb4.png";
+const colors = [
+  "rgba(250, 115, 172, 0.7)", // pink
+  "rgba(255, 160, 60, 0.7)",  // orange
+  "rgba(85, 180, 255, 0.7)",  // blue
+  "rgba(255, 255, 90, 0.7)",  // yellow
+];
 
-const orbs = [orb1, orb2, orb3, orb4];
-const delays = [0, 5, 10, 15];
+const rotations = [0, 90, 180, 270];
 
 const orbitKeyframes = `
 @keyframes orbit {
@@ -26,36 +27,31 @@ const Pro = () => {
       <style>{orbitKeyframes}</style>
 
       <div className="relative z-10 w-full max-w-[1240px] bg-[#0B1227] rounded-[20px] shadow-[0_0_60px_rgba(0,0,0,0.7)] px-6 sm:px-10 py-10 sm:py-16 flex flex-col md:flex-row items-center gap-10 sm:gap-14 overflow-hidden">
-        
-        {/* Orbiting Images container INSIDE the main box */}
-        <div className="absolute inset-0 pointer-events-none -z-10">
-          {/* Dark overlay to make orbs stand out */}
-          <div className="absolute inset-0 bg-black opacity-40 rounded-[20px]" />
-          
-          {orbs.map((orb, idx) => (
+
+        {/* Animated blurred colored orbs */}
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none -z-10">
+          {rotations.map((initialRotation, idx) => (
             <div
               key={idx}
               style={{
                 position: "absolute",
                 top: "50%",
                 left: "50%",
-                width: "180px",
-                height: "180px",
-                marginTop: "-90px",
-                marginLeft: "-90px",
-                transformOrigin: "center center",
-                animation: `orbit 30s linear infinite`,
-                animationDelay: `${delays[idx]}s`,
-                opacity: 0.3,
-                filter: "brightness(0.7) drop-shadow(0 0 10px rgba(255,255,255,0.3))",
+                width: "350px",
+                height: "200px",
+                background: colors[idx],
+                filter: "blur(75px)",
+                borderRadius: "50% / 50%",
+                marginTop: "-100px",
+                marginLeft: "-175px",
+                transformOrigin: "50% 50%",
+                transform: `rotate(${initialRotation}deg) translateX(350px) rotate(-${initialRotation}deg)`,
+                animation: "orbit 12s linear infinite",
+                animationDelay: `${idx * 2}s`,
+                opacity: 0.4,
+                boxShadow: `0 0 40px ${colors[idx]}`,
               }}
-            >
-              <img
-                src={orb}
-                alt={`orb-${idx}`}
-                className="w-full h-full object-contain"
-              />
-            </div>
+            />
           ))}
         </div>
 
@@ -70,17 +66,63 @@ const Pro = () => {
 
         {/* Right Text Content */}
         <div className="flex-1 text-white relative z-20">
-          <p className="text-sm text-gray-400 mb-1">Pro Toolkits</p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4">
-            Next-<span className="text-[#8de1ff]">Level</span>
+          <p
+            className="text-sm mb-1"
+            style={{
+              background: "linear-gradient(90deg, #FFFFFF 0%, #010B24 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              textFillColor: "transparent",
+            }}
+          >
+            Pro Toolkits
+          </p>
+
+          <h2
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4"
+            style={{
+              background: "linear-gradient(98.15deg, #FFFFFF 17.31%, #0594BB 145.03%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              textFillColor: "transparent",
+              fontWeight: 800,
+            }}
+          >
+            Next-{" "}
+            <span
+              style={{
+                background: "linear-gradient(98.15deg, #8DE1FF 0%, #0594BB 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                textFillColor: "transparent",
+              }}
+            >
+              Level
+            </span>
             <br />
-            Trading <span className="text-[#8a5cff]">Tools</span>
+            Trading{" "}
+            <span
+              style={{
+                background: "linear-gradient(98.15deg, #8A5CFF 0%, #3A1F7D 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                textFillColor: "transparent",
+              }}
+            >
+              Tools
+            </span>
           </h2>
+
           <p className="text-[#D3DCE6] text-sm sm:text-base md:text-lg mb-6">
             Simplify complex price action, spot high-probability signals, and track
             smart money reversals — all with our advanced TradingView-compatible
             toolkits.
           </p>
+
           <button className="bg-white text-[#010B24] px-5 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-gray-200 transition duration-200 text-sm sm:text-base">
             <span>➜</span> Level Up Your Charts
           </button>
